@@ -1,3 +1,4 @@
+# coding: utf-8
 # Jekyll category page generator.
 # http://recursive-design.com/projects/jekyll-plugins/
 #

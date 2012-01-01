@@ -1,6 +1,0 @@
----
-layout: post
-categories: tech
----
-
-hello my blog

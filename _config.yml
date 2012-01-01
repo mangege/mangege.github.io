@@ -9,10 +9,9 @@ destination: ./_site
 plugins:     ./_plugins
 
 lsi:         false
-pygments:    false
-markdown:    maruku
+pygments:    true
+markdown:    rdiscount
 permalink:   /:year/:month/:day/:title.html
 
 paginate: 10          # Posts per page on the blog index
 #pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/
-
