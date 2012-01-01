@@ -1,0 +1,20 @@
+{% include head.html %}
+<body class="jekyll ltr zh_CN parent-theme logged-out blog gecko primary-active secondary-inactive subsidiary-inactive">
+<div id="body-container">
+        <div id="header-container">
+                <div id="header">
+                        <h1 id="site-title"><a href="http://www.mangege.com/" title="曹小华的博客" rel="home"><span>曹小华的博客</span></a></h1>
+                        <h2 id="site-description"><span>做点有意义的事</span></h2>
+                </div><!-- #header -->
+        </div><!-- #header-container -->
+        {% include menu.html %}
+        <div id="container">
+        <div id="content" class="hfeed content">
+          {{content}}
+        </div><!-- .content .hfeed -->
+        {% include sidebar.html %}
+        </div><!-- #container -->
+        {% include footer.html %}
+</div><!-- #body-container -->
+</body>
+</html>

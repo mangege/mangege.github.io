@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+{% for post in paginator.posts %}
+  {% include post.html %}
+{% endfor %}
+
+<div class="navigation-links">
+  {% if paginator.next_page %}
+  <a class="previous" href="{{paginator.next_page}}">&larr; Older</a>
+  {% endif %}
+  {% if paginator.previous_page %}
+  <a class="next" href="{{paginator.previous_page}}">Newer &rarr;</a>
+  {% endif %}
+</div>

@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div class="hentry post publish">
+  <h1 class="post-title entry-title"><a href="{{page.url}}" rel="bookmark">{{page.title}}</a></h1>
+  <p class="byline"><abbr class="published">{{page.date}}</abbr>
+  {% unless page.categories == empty %}| <span class="category">{{ page.categories | category_links }}</span>{% endunless %}
+  </p>
+  <div class="entry-content">
+    {{page.content}}
+  </div><!-- .entry-content -->
+</div>
+
+<div id="comments-template">
+  {% include disqus.html %}
+</div>

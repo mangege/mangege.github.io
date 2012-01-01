@@ -1,0 +1,19 @@
+<div id="primary" class="sidebar aside">
+  <div id="recent_posts" class="widget recent_posts"><div class="widget-wrap widget-inside">
+      <h3 class="widget-title">最近文章</h3>
+      <ul class="xoxo recent_posts">
+        {% for post in site.posts limit: 10 %}
+        <li><a href='{{post.url}}'>{{post.title}}</a></li>
+        {% endfor %}
+      </ul><!-- .xoxo .recent_posts -->
+  </div></div>
+
+  <div id="hybrid-categories" class="widget categories widget-categories"><div class="widget-wrap widget-inside">
+      <h3 class="widget-title">分类</h3>
+      <ul class="xoxo categories">
+        <li class="cat-item"><a href="/categories/tech" title="电脑方面心得">技术</a></li>
+        <li class="cat-item"><a href="/categories/life" title="梦想与现实">生活</a></li>
+      </ul><!-- .xoxo .categories -->
+  </div></div>
+
+</div><!-- #primary .aside -->

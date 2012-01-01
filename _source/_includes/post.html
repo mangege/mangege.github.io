@@ -1,0 +1,9 @@
+<div class="hentry post publish">
+  <h2 class="entry-title"><a href="{{post.url}}" rel="bookmark">{{post.title}}</a></h2>
+  <p class="byline"><abbr class="published">{{post.date}}</abbr>
+  {% unless post.categories == empty %}| <span class="category">{{ post.categories | category_links }}</span>{% endunless %}
+  </p>
+  <div class="entry-content">
+    {{post.content}}
+  </div><!-- .entry-content -->
+</div><!-- .hentry -->
