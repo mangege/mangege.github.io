@@ -9,9 +9,13 @@ destination: ./_site
 plugins:     ./_plugins
 
 lsi:         false
-pygments:    true
-markdown:    rdiscount
+pygments:    false
+markdown:    kramdown
 permalink:   /:year/:month/:day/:title.html
 
 paginate: 10          # Posts per page on the blog index
 #pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/
+
+redcarpet:
+  extensions: [fenced_code_blocks]
+  render_options:
