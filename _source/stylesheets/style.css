@@ -559,3 +559,6 @@ textarea {
 	float: right;
 	width: 300px;
 	}
+
+/* custom */
+.entry-content h1, .entry-content h2, .entry-content h3 { font-size: 17px; }
