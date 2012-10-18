@@ -1,0 +1,49 @@
+---
+layout: post
+title: "jQuery Validation定制:只有提交时才验证"
+date: 2012-10-18 20:28
+categories: tech
+---
+
+[jQuery Validation](http://bassistance.de/jquery-plugins/jquery-plugin-validation/)默认在失去光标会检测表单元素是否通过验证,没有通过的话则显示错误信息.  
+需求要求只有按提交才验证并显示错误信息.
+
+jQuery Validation默认支持禁用失去光标时验证,一种简单的实现:
+
+```javascript
+$("#commentForm").validate({onfocusout: false, onkeyup: false, onclick: false});
+```
+
+上面代码会引发一个问题,需要手动点击提交按钮才知道是否验证通过.比如有一个元素已经验证不通过,当我修改为正确的内容,需要再点击提交按钮才知道是否验证通过.  
+我们可以改成,当表单有未通过元素,失去光标等事件时自动验证表单元素.  
+最后变成,默认失去光标不会触发表单验证,点击提交按钮,如果表单未通过验证,这时修改表单内容失去光标会验证.
+
+下面这种方式是一种无缝全局修改方式,在引入jQuery Validation的JS再引入此代码,之后直接调用`$("#commentForm").validate()`即可:
+
+```javascript
+(function($) {
+
+  var validator_defaults_dup = $.extend({}, $.validator.defaults);
+  $.extend($.validator.defaults, {
+    onfocusout: function() {
+      if (this.numberOfInvalids() > 0) {
+        validator_defaults_dup.onfocusout.apply(this, arguments);
+      }
+    },
+    onkeyup: function() {
+      if (this.numberOfInvalids() > 0) {
+        validator_defaults_dup.onfocusout.apply(this, arguments);
+      }
+    },
+    onclick: function() {
+      if (this.numberOfInvalids() > 0) {
+        validator_defaults_dup.onfocusout.apply(this, arguments);
+      }
+    }
+  });
+
+
+})(jQuery);
+```
+
+此方式不修改jQuery Validation源码,方便升级
