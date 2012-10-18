@@ -43,3 +43,8 @@ task :new_post, :title do |t, args|
   end
   #system("vim #{filename}")
 end
+
+desc "Preview"
+task :preview do
+  system "jekyll --redcarpet --server --auto "
+end
