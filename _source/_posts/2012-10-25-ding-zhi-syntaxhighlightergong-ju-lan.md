@@ -1,0 +1,146 @@
+---
+layout: post
+title: "定制SyntaxHighlighter工具栏"
+date: 2012-10-25 18:43
+categories: tech
+---
+
+本文基于 [SyntaxHighlighter](http://alexgorbatchev.com/SyntaxHighlighter/) 3.0.83 (July 02 2010)
+
+工作需要简单的定制一下SyntaxHighlighter,在代码块首行显示代码的编程语言名.  
+效果:  
+![SyntaxHighlighter](/images/2012-10-25-190431_763x102_scrot.png)
+
+#### 重点:
+* `SyntaxHighlighter.toolbar.items.list`此变量存放需要toolbar元素,默认有`['expandSource', 'help']`
+* 自定义toolbar元素可以参加官方的expandSource元素实现,主要要实现getHtml或execute方法.
+  + getHtml返回值将会添加到页面`div.toolbar`里
+  + execute用于点击getHtml返回Html所执行的代码
+  + 没有getHtml方法时,将会调用defaultGetHtml要方法
+
+###### 官方的expandSource代码
+```javascript
+  expandSource: {
+    getHtml: function(highlighter) {
+      if (highlighter.getParam('collapse') != true) return '';
+
+      var title = highlighter.getParam('title');
+      return sh.toolbar.getButtonHtml(highlighter, 'expandSource', title ? title : sh.config.strings.expandSource);
+    },
+
+    execute: function(highlighter) {
+      var div = getHighlighterDivById(highlighter.id);
+      removeClass(div, 'collapsed');
+    }
+  }
+```
+
+如果有用到jQuery,把调用`SyntaxHighlighter.all();`你改成`SyntaxHighlighter.highlight();`应该是更好的选择,因为默认`SyntaxHighlighter.all();`是需要用的是window.onload,要等页面和图片都加载完才会调用`SyntaxHighlighter.highlight();`高亮;你可以改用`$.ready`  
+如果需要高亮页面后生成的html,也只要调用`SyntaxHighlighter.highlight();`即可
+
+###### 实现代码:
+```javascript
+//自定义配置
+function my_syntax_highlighter() {
+  SyntaxHighlighter.config.stripBrs = true;
+  SyntaxHighlighter.config.useScriptTags = false;
+  SyntaxHighlighter.defaults.toolbar = true;
+  SyntaxHighlighter.highlight();
+}
+
+//统一显示代码名,而不是显示brush name短名称
+var human_code_names = {
+  "ActionScript3": ["as3", "actionscript3"],
+  "Assembly": ["nasm8086", "8086", "nasm", "asm", "masm"],
+  "AppleScript": ["applescript"],
+  "Bash/shell": ["bash", "shell"],
+  "ColdFusion": ["cf", "coldfusion"],
+  "C#": ["c-sharp", "csharp"],
+  "C/C++": ["cpp", "c"],
+  "CSS": ["css"],
+  "Delphi/Pascal": ["delphi", "pas", "pascal"],
+  "Diff/Patch": ["diff", "patch"],
+  "Erlang": ["erl", "erlang"],
+  "Groovy": ["groovy"],
+  "JavaScript": ["js", "jscript", "javascript"],
+  "Java": ["java"],
+  "JavaFX": ["jfx", "javafx"],
+  "Objective C": ["obj-c", "objc"],
+  "Perl": ["perl", "pl"],
+  "PHP": ["php"],
+  "Plain Text": ["plain", "text"],
+  "PowerShell": ["ps", "powershell"],
+  "Python": ["py", "python"],
+  "Ruby": ["rails", "ror", "ruby"],
+  "Sass": ["sass", "scss"],
+  "Scala": ["scala"],
+  "SQL": ["sql"],
+  "Visual Basic": ["vb", "vbnet"],
+  "XML/HTML": ["xml", "xhtml", "xslt", "html", "xhtml"]
+};
+
+function human_code_name(brush_name) {
+  brush_name = $.trim(brush_name);
+  var result = null;
+  $.each(human_code_names, function(key, value) {
+    var hit_flag = false;
+    $.each(value, function() {
+      if (this == brush_name) {
+        hit_flag = true;
+        return false;
+      }
+    });
+    if (hit_flag) {
+      result = key;
+      return false;
+    }
+  });
+
+  if (result === null) return brush_name;
+  else return result;
+}
+
+function custom_syntax_highlighter_toolbar() {
+  SyntaxHighlighter.toolbar.items.list = ['codeName'];
+  SyntaxHighlighter.toolbar.items.codeName = {
+    getHtml: function(highlighter) {
+      var brush_name = highlighter.params.brush;
+      return '<span>' + human_code_name(brush_name) + ' code</span>';
+    }
+  };
+}
+
+$(function() {
+  my_syntax_highlighter();
+  syntax_highlighter_with_compatible();
+});
+```
+
+###### 样式:
+```css
+div.syntaxhighlighter{
+  overflow: auto;
+}
+
+.syntaxhighlighter .toolbar{
+  width: 99.9% !important;
+  height: 24px !important;
+  line-height: 24px !important;
+  background-color: whiteSmoke !important;
+  font-weight: bold !important;
+  text-indent: 6px !important;
+  color: #333 !important;
+  position: static !important;
+  right: 0px !important;
+  top: 0px !important;
+}
+.syntaxhighlighter .toolbar span{
+  height: 24px !important;
+  line-height: 24px !important;
+}
+.syntaxhighlighter table{
+  border: solid 1px #DDD !important;
+  padding: 5px 0 !important;
+  width: 99.7% !important;
+}
+```
