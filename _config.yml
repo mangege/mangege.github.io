@@ -10,7 +10,7 @@ plugins:     ./_plugins
 
 lsi:         false
 pygments:    false
-markdown:    kramdown
+markdown:    redcarpet
 permalink:   /:year/:month/:day/:title.html
 
 paginate: 10          # Posts per page on the blog index
