@@ -4,7 +4,7 @@ require "bundler/setup"
 require "stringex"
 
 github_origin = 'git@github.com:mangege/mangege.github.com.git'
-domain = 'mangege.com'
+domain = 'blog.mangege.com'
 
 task :default => [:deploy]
 
@@ -14,7 +14,7 @@ task :deploy do
   system 'rm -rf _site'
   system 'jekyll --redcarpet'
   cd '_site' do
-#    system "echo -n #{domain} > CNAME"
+    system "echo -n #{domain} > CNAME"
     system "git init"
     system "git add ."
     system "git commit -m 'site update #{Time.now}'"
