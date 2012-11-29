@@ -5,10 +5,10 @@ layout: nil
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[曹小华的博客]]></title>
-  <link href="http://www.mangege.com/atom.xml" rel="self"/>
-  <link href="http://www.mangege.com/"/>
+  <link href="http://blog.mangege.com/atom.xml" rel="self"/>
+  <link href="http://blog.mangege.com/"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
-  <id>http://www.mangege.com/</id>
+  <id>http://blog.mangege.com/</id>
   <author>
     <name><![CDATA[曹小华]]></name>
   </author>
@@ -16,9 +16,9 @@ layout: nil
   {% for post in site.posts limit: 20 %}
   <entry>
     <title type="html"><![CDATA[{{ post.title }}]]></title>
-    <link href="http://www.mangege.com/{{ post.url }}"/>
+    <link href="http://blog.mangege.com/{{ post.url }}"/>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <id>http://www.mangege.com/{{ post.id }}</id>
+    <id>http://blog.mangege.com/{{ post.id }}</id>
     <content type="html"><![CDATA[{{ post.content }}]]></content>
   </entry>
   {% endfor %}
