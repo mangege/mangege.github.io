@@ -45,13 +45,13 @@ def check_time():
 
 def start():
     global minerd_process
-    if check_time() and minerd_process is None:
+    if check_time() and (minerd_process is None):
         run_minerd()
 
 
 def stop():
     global minerd_process
-    if (not check_time()) and minerd_process is not None:
+    if (not check_time()) and (minerd_process is not None):
         if minerd_process.poll() is None:
             minerd_process.kill()
         minerd_process = None
