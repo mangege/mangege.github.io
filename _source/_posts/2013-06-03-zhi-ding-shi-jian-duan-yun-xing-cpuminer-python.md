@@ -13,6 +13,7 @@ import shlex
 from datetime import datetime, time
 import time as atime
 from subprocess import Popen
+from subprocess import call as pcall
 
 BEGIN_HOUR = 18
 END_HOUR = 7
@@ -54,6 +55,7 @@ def stop():
     if (not check_time()) and (minerd_process is not None):
         if minerd_process.poll() is None:
             minerd_process.kill()
+            pcall(['pkill', '-f', 'minerd'])
         minerd_process = None
 
 
