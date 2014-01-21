@@ -2,8 +2,8 @@
 source "http://ruby.taobao.org"
 
 group :development do
-  gem "rake", "~> 0.9.2.2"
-  gem "jekyll", :git => 'git://github.com/chitsaou/jekyll.git', :branch => 'redcarpet-2.0'
-  gem "stringex", "~> 1.4.0"
-  gem "redcarpet", "~> 2.1.1"
+  gem "rake"
+  gem "jekyll"
+  gem "stringex"
+  gem "redcarpet"
 end

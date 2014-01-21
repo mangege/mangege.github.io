@@ -12,7 +12,7 @@ desc 'deploy to github pages'
 task :deploy do
   puts "deploy site"
   system 'rm -rf _site'
-  system 'jekyll --redcarpet'
+  system 'jekyll build'
   cd '_site' do
     system "echo -n #{domain} > CNAME"
     system "git init"
@@ -46,5 +46,5 @@ end
 
 desc "Preview"
 task :preview do
-  system "jekyll --redcarpet --server --auto "
+  system "jekyll serve"
 end

@@ -1,0 +1,43 @@
+---
+layout: post
+title: "在Linux用VirtualBox跑<自己动手写操作系统>示例一"
+date: 2014-01-21 10:20
+categories: tech
+---
+
+在看于渊的<自己动手写操作系统>,第一章的示例用到软驱.  
+在这个年代,找到带软驱的计算机还真不容易,还好有虚拟机.
+
+VirtualBox默认支持软驱镜像文件启动,难点在于在Linux环境创建软驱镜像并且把boot.bin写到镜像文件里.
+
+本文基于archlinux环境操作,需要用到`dd losetup mkfs.vfat`等命令.  
+mkfs.vfat需要安装`dosfstools`这个包.
+
+
+1 首先创建镜像文件
+
+    sudo dd if=/dev/zero of=/tmp/floppy.img bs=1k count=1440
+
+
+2 格式化镜像文件
+
+    sudo mkfs.vfat /tmp/floppy.img
+
+3 安装设备
+
+    sudo losetup losetup /dev/loop7 /tmp/floppy.img
+
+4 复制启动文件
+
+    sudo dd if=boot.bin of=/dev/loop7 bs=512 count=1
+
+5 删除设备
+
+    losetup -d /dev/loop7
+
+6 设置VirtualBox的Floppy为"/tmp/floppy.img"文件
+
+    设置 -> 存储 -> 选择一个虚拟软盘
+
+效果图
+![LinuxVBoxFloppy](/images/2014-01-21-103639_736x497_scrot.png)
