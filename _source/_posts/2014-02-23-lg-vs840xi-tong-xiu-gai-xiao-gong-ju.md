@@ -1,0 +1,47 @@
+---
+layout: post
+title: "LG VS840系统修改小工具 XposedLucidMod"
+date: 2014-02-23 15:02
+categories: tech
+---
+
+废话
+------
+
+买两百从淘宝买了个LG VS840电信手机来玩,这手机性价比不错,双核,1G内存,8G存储,IPS硬屏.  
+有点郁闷的是原生系统默认是连接不上国内的电信网络打电话,需要修改设置里的选项才行.而此选项却隐藏起来,需要修改LGSettings.apk文件才能使用.
+
+网上有修改好的LGSettings.apk文件，不过都是rom v8以前的版本,v9无法使用.  
+个人不喜欢替换原生系统的文件,用过一个不错的权限管理软件*xprivacy*,从而了解到xposed这个强大的rom修改框架,此框架修改rom无需要修改apk文件,大爱.
+
+XposedLucidMod功能列表
+------
+
+* 添加系统选择到设置
+* 从设置里删除Backup Assistant Plus
+* 从帐号与同步里删除VERIZON帐户选项
+* 删除状态栏的三角形漫游图标
+* 删除定位的十字架图标
+
+效果图请看 http://pan.baidu.com/s/1sjzyceL
+
+安装教程
+--------
+
+* 升级手机为原生最新的v9系统
+  1. rom 下载地址 https://app.box.com/s/hpapn930pad7afw85bth
+  2. 教程链接 http://androidforums.com/lucid-all-things-root/654009-guide-unbrick-lg-lucid.html
+* 使用 LG_Spectrum_ICS.zip root你的手机
+  1. 工具下载地址 https://app.box.com/s/hpapn930pad7afw85bth
+  2. 解压后运行window-install.bat
+* 安装Xposed
+  1. 官方教程地址 http://forum.xda-developers.com/showthread.php?t=1574401
+  2. 下载apk并安装 http://dl.xposed.info/latest.apk
+  3. 运行Xposed安装器,点击框架,安装,重启手机
+* 安装XposedLucidMod模块
+  1. 下载XposedLucidMod.apk并安装 http://pan.baidu.com/s/1sjzyceL
+  2. 打开Xposed安装器,点击模块,启用XposedLucidMod即可
+
+XposedLucidMod源码
+------------------
+https://github.com/mangege/XposedLucidMod
