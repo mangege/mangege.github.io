@@ -1,4 +1,2 @@
-_site/
-*.swp
-*.swo
-.bundle
+_site
+.sass-cache
