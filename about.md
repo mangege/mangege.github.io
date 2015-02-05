@@ -11,6 +11,6 @@ permalink: /about/
 >    —— 维克多.雨果
 
 
-一个程序员的博客,主要做Web开发方面.学过JAVA,现做RUBY.
+一个程序员的博客,主要做Web开发方面.学过JAVA,现用RUBY.
 
 Gmail &amp; Gtalk: *mr.mangege*
