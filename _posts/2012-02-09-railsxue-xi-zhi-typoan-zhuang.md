@@ -1,0 +1,35 @@
+---
+layout: post
+title: "Rails学习笔记之Typo安装"
+date: 2012-02-09 15:53
+categories: tech
+---
+
+选择Typo作为学习目标.原因有三点:
+
+1. 更像我们平常开发的Rails应用,对Rails动刀的地方不多,容易看懂.
+2. 博客项目,复杂度相对来说比较简单,功能也不少.
+3. 有测试,分析起来很轻松.
+
+从安装分析起.我也是半吊子,写的不好,请多多指教.  
+安装路径是/setup,Controller是Setup,从此Controller的RSpec可以看出,进行setup操作,数据库里需要有一条Blog数据,不然会报错的.
+
+GET setup时,会调用ApplicationController的this_blog方法. this_blog方法默认拿到Blog的第一条记录  
+POST setup用的是同一个方法,用http method来区分,提交表单用post. 成功后会重定向到 /setup/confirm  
+此操作应该会生成一个用户,和初始化博客设置.
+
+汗,貌似我在翻译Typo的RSpec.Stop,看到觉得不错的再分享.
+
+text_field的placeholder属性挺不错的,输入提示用的,获取到光标时自动隐藏.不过是HTML5特性
+
+generate_password方法用的upto,其实times实现更优美.
+
+```ruby
+1.upto(7) { |i| newpass << chars[rand(chars.size-1)] }
+```
+
+新
+
+```ruby
+7.times { newpass << chars[rand(chars.size-1)] } 
+```
