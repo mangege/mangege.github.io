@@ -25,3 +25,9 @@ permalink: /code-monkeys/
 
 * 如果当天有直播,会在直播完成后再播视频.
 * 觉得不错,支付宝帐号在此,谢谢. cutdeer@vip.qq.com
+
+### 微信订阅号
+
+名称: 猴子玩电脑
+微信号: code-monkeys
+![code-monkeys-qrcode](/images/qrcode_for_gh_73cfd2bd6ff5_258.jpg)
