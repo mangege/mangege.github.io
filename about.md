@@ -13,4 +13,4 @@ permalink: /about/
 
 一个程序员的博客,主要做Web开发方面.学过Java,现用Ruby.
 
-Gmail &amp; Gtalk: *mr.mangege*
+Gmail: *ciro9527*
