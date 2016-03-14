@@ -17,10 +17,5 @@ github_username:  mangege
 
 # Build settings
 markdown: kramdown
-
-collections:
-  - tech
-  - life
-
 exclude:
   - vendor
