@@ -4,8 +4,7 @@ title:
 permalink: /resume/
 ---
 
-曹小华的简历
-===
+# 曹小华的简历
 
 - Gmail: ciro9527
 - Blog: [https://blog.mangege.com](https://blog.mangege.com)
@@ -13,13 +12,13 @@ permalink: /resume/
 - Twitter: [https://twitter.com/ciro9527](https://twitter.com/ciro9527)
 
 
-简介
----
+### 简介
+
 熟悉 Web 后端开发,有网站和手机 App 后端开发经验.有服务器维护经验,能独立完成一个项目的开发,服务器环境搭建和部署.
 
 
-经历
----
+### 经历
+
 - 湖南海翼电子商务股份有限公司(长沙) **Ruby 工程师** 2015/09 ~ 至今
   + 参与海翼官网商城和营销活动开发
   + 维护公司内网,香港机房, AWS 大概 50 台服务器.
@@ -34,13 +33,13 @@ permalink: /resume/
   + 参与 诚信新家商,中国地理标志和农产品商标平台 项目开发
 
 
-学历
----
+### 学历
+
 高中
 
 
-技能
----
+### 技能
+
 - Linux + VIM / 熟练
 - Ruby + Rails / 熟练
 - MySQL / 了解
