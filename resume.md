@@ -4,7 +4,7 @@ title:
 permalink: /resume/
 ---
 
-# 曹小华的简历
+## 曹小华的简历
 
 - Gmail: ciro9527
 - Blog: [https://blog.mangege.com](https://blog.mangege.com)
