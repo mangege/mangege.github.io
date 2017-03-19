@@ -15,7 +15,15 @@ url: "https://blog.mangege.com" # the base hostname & protocol for your site
 twitter_username: ciro9527
 github_username:  mangege
 
+disqus:
+  shortname: mangege
+
 # Build settings
+theme: minima
 markdown: kramdown
+gems:
+  - jekyll-feed
 exclude:
-  - vendor
+  - vendor/
+  - Gemfile
+  - Gemfile.lock
