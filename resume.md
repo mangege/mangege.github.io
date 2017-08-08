@@ -1,11 +1,7 @@
 ---
 layout: page
 permalink: /resume/
-published: false
 ---
-
-曹小华的简历
-===
 
 - Gmail: ciro9527
 - Blog: [https://blog.mangege.com](https://blog.mangege.com)
