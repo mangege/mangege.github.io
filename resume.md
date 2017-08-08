@@ -1,6 +1,7 @@
 ---
 layout: page
 permalink: /resume/
+published: false
 ---
 
 曹小华的简历
