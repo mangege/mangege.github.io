@@ -4,6 +4,7 @@ title: 关于
 permalink: /about/
 ---
 
-一个程序员的博客,主要做Web开发方面.学过Java,现用Ruby.
+瞎折腾的垃圾佬。
+技术+性价比+折腾精神=垃圾佬
 
 Gmail: *ciro9527*
