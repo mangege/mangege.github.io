@@ -6,7 +6,7 @@ permalink: /resume/
 - Gmail: ciro9527
 - Blog: [https://blog.mangege.com](https://blog.mangege.com)
 - Github: [https://github.com/mangege](https://github.com/mangege)
-- Twitter: [https://twitter.com/ciro9527](https://twitter.com/ciro9527)
+- Twitter: [https://x.com/ciro9527](https://x.com/ciro9527)
 
 
 ### 简介
