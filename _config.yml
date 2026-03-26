@@ -97,6 +97,8 @@ ignore:
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
+plugins:
+  - hexo-markdown-mermaid
 ## Themes: https://hexo.io/themes/
 theme: landscape
 
@@ -118,3 +120,8 @@ feed:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+mermaid:
+  version: 11
+  startOnLoad: true
+  theme: dark
